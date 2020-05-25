@@ -1,15 +1,35 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import Game from './Game';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16'
+import GameComponent from './GameComponent';
 
-describe('<Game />', () => {
-  let component;
 
-  beforeEach(() => {
-    component = shallow(<Game />);
-  });
+Enzyme.configure({ adapter: new Adapter() })
+
+describe('<GameComponent />', () => {
+  const component = <GameComponent />
+
+  // beforeEach(() => {
+  //
+  // });
+
+
+  // it("renders deck", async () => {
+  //   const fakeDeck = {
+  //       "success": true,
+  //       "deck_id": "3p40paa87x90",
+  //       "shuffled": true,
+  //       "remaining": 52
+  //   };
+  //
+  //   jest.spyOn(global, "fetch").mockImplementation(() => {
+  //     Promise.resolve({
+  //       json: () => Promise.resolve(fakeDeck)
+  //     })
+  //   });
+
 
   test('It should mount', () => {
-    expect(component.length).toBe(1);
+    it(component.find(GameComponent)).toBe(1);
   });
 });
